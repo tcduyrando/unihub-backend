@@ -1,0 +1,7 @@
+MIT             yes
+Caltech         yes
+
+Oxford          not allowed
+Harvard         cannot scrape (in <script>)
+
+TimesHigherEducation not allowed

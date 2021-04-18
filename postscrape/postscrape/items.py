@@ -6,7 +6,14 @@
 import scrapy
 
 
-class PostscrapeItem(scrapy.Item):
+class UniItem(scrapy.Item):
     # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+    name = scrapy.Field()
+    email = scrapy.Field()
+    phone = scrapy.Field()
+    location = scrapy.Field()
+    admissionWeb = scrapy.Field()
+    name2 = scrapy.Field()
+    tuition = scrapy.Field()
+    website = scrapy.Field()
+

@@ -4,4 +4,7 @@ Caltech         yes
 Oxford          not allowed
 Harvard         cannot scrape (in <script>)
 
+commonapp.org       allowed
+collegedata.com     allowed
+
 TimesHigherEducation not allowed

@@ -1,0 +1,5 @@
+[
+{"name": "Yale University", "email": "apply.questions@yale.edu", "phone": "(203) 432-9300", "location": ["New Haven", ", CT", " 06520-8234", ", United States of America"], "admissionWeb": "https://admissions.yale.edu/first-year-application-process"},
+{"name": "Princeton University", "email": "uaoffice@princeton.edu", "phone": "(609) 258-3060", "location": [", Princeton University", "Princeton", ", NJ", " 08542-0430", ", United States of America"], "admissionWeb": "https://admission.princeton.edu/"},
+{"name": "University of Chicago", "email": "collegeadmissions@uchicago.edu", "phone": "(773) 702-8650", "location": ["Chicago", ", IL", " 60637", ", United States of America"], "admissionWeb": "https://collegeadmissions.uchicago.edu/apply/first-year-applicants"}
+]

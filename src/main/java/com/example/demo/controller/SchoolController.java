@@ -57,7 +57,6 @@ public class SchoolController {
 		school.setPhone(schoolDetails.getPhone());
 		school.setCountry(schoolDetails.getCountry());
 		school.setLocation(schoolDetails.getLocation());
-		school.setAdmissionWeb(schoolDetails.getAdmissionWeb());
 		school.setTuitionUSD(schoolDetails.getTuitionUSD());
 		school.setTuition(schoolDetails.getTuition());
 		school.setWebsite(schoolDetails.getWebsite());

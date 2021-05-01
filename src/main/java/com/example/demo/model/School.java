@@ -37,9 +37,6 @@ public class School {
 	@Column(name = "location")
 	private String location;
 	
-	@Column(name = "admissionWeb")
-	private String admissionWeb;
-	
 	@Column(name = "tuitionUSD")
 	private int tuitionUSD;
 	
@@ -67,16 +64,15 @@ public class School {
 	public School() {
 		
 	}
-	public School(String name, String email, String phone, String country, String location, String admissionWeb,
-			int tuitionUSD, String tuition, String website, String logoURL, String imageURL, float score_ielts,
-			int score_toefl, int score_sat) {
+	public School(String name, String email, String phone, String country, String location,
+			int tuitionUSD, String tuition, String website, String logoURL, String imageURL, 
+			float score_ielts, int score_toefl, int score_sat) {
 		super();
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
 		this.country = country;
 		this.location = location;
-		this.admissionWeb = admissionWeb;
 		this.tuitionUSD = tuitionUSD;
 		this.tuition = tuition;
 		this.website = website;
@@ -122,12 +118,6 @@ public class School {
 	}
 	public void setLocation(String location) {
 		this.location = location;
-	}
-	public String getAdmissionWeb() {
-		return admissionWeb;
-	}
-	public void setAdmissionWeb(String admissionWeb) {
-		this.admissionWeb = admissionWeb;
 	}
 	public int getTuitionUSD() {
 		return tuitionUSD;

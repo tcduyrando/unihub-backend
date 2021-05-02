@@ -6,5 +6,6 @@ Harvard         cannot scrape (in <script>)
 
 commonapp.org       allowed
 collegedata.com     allowed
+gotouniversity.com  allowed (no xpath)
 
 TimesHigherEducation not allowed

@@ -1,11 +1,23 @@
 import scrapy
 
+from ..items import UniItem
+
 class MITSpider(scrapy.Spider):
     name = 'mit'
 
-    start_urls = [
-        'https://gradadmissions.mit.edu/programs'
-    ]
+    # mit website is now down, will crawl later
+
+    start_urls = ['https://gradadmissions.mit.edu/programs']
+
+    def parse(self, response):
+        for programList in response.css("div.views-row"):
+            items = UniItem()
+            program = programList.css("div.views-field.views-field-title.program_list_column span.field-content a::text").get()
+            items['program'] = program
+            items['school_id'] = 5
+            yield items
+
+    # start_urls = ['https://gradadmissions.mit.edu/programs']
 
     # def parse(self, response):
     #     yield {
@@ -21,12 +33,12 @@ class MITSpider(scrapy.Spider):
     #             # 'deadline' : program.css("div div.field-content span::text").get()
     #         }
 
-    start_urls = ['https://gradadmissions.mit.edu/costs-funding/cost-of-attendance']
-
-    def parse(self, response):
-        yield {
-            'tuition': response.xpath("//*[@id='docs-internal-guid-013c85db-7fff-d830-0015-ef077a3b2274']/text()").get()
-        }
+    # start_urls = ['https://gradadmissions.mit.edu/costs-funding/cost-of-attendance']
+    #
+    # def parse(self, response):
+    #     yield {
+    #         'tuition': response.xpath("//*[@id='docs-internal-guid-013c85db-7fff-d830-0015-ef077a3b2274']/text()").get()
+    #     }
 
 
 

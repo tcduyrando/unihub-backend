@@ -1,7 +1,20 @@
 import scrapy
 
+from ..items import UniItem
+
 class CambridgeSpider(scrapy.Spider):
     name = 'cambridge'
+
+    start_urls = ['https://www.undergraduate.study.cam.ac.uk/courses']
+
+    def parse(self, response):
+        for programList in response.xpath("//*[@id='block-system-main']/div/div/div/div"):
+            for sublist in programList.css("div.view-content div"):
+                items = UniItem()
+                program = sublist.css("a::text").get()
+                items['program'] = program
+                items['school_id'] = 3
+                yield items
 
     # start_urls = ['https://www.undergraduate.study.cam.ac.uk/courses']
     #

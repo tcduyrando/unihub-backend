@@ -1,7 +1,18 @@
 import scrapy
 
+from ..items import UniItem
+
 class StanfordSpider(scrapy.Spider):
     name = 'stanford'
+
+    start_urls = ['https://majors.stanford.edu/']
+    def parse(self, response):
+        for programList in response.xpath("//*[@id='isotope-container']/div"):
+            items = UniItem()
+            program = programList.css("p::text").get()
+            items['program'] = program
+            items['school_id'] = 7
+            yield items
 
     # start_urls = ['https://visit.stanford.edu/contact/']
     # def _parse(self, response):
@@ -25,8 +36,8 @@ class StanfordSpider(scrapy.Spider):
     #             'program' : program.css("p::text").get()
     #         }
 
-    start_urls = ['https://www.collegedata.com/college-search/stanford-university/money-matters']
-    def parse(self, response):
-        yield {
-            'tuition' : response.xpath("//*[@id='app-container']/div/div/div[1]/div[3]/div/div/div/div[5]/div[1]/div[2]/text()").get()
-        }
+    # start_urls = ['https://www.collegedata.com/college-search/stanford-university/money-matters']
+    # def parse(self, response):
+    #     yield {
+    #         'tuition' : response.xpath("//*[@id='app-container']/div/div/div[1]/div[3]/div/div/div/div[5]/div[1]/div[2]/text()").get()
+    #     }

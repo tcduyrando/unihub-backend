@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.hibernate.SQLQuery;
+
 //import org.hibernate.query.Query;
 
 //import org.hibernate.Query;
@@ -54,12 +56,11 @@ public class FavoriteController {
 	}
 	
 	// get favorite by user id REST API
-//			@GetMapping("/favorites/user/{id}")
-//			public ResponseEntity<List<Favorite>> getFavoriteByUser(@PathVariable int userId) {
-//				List<Favorite> favorite = favoriteRepository.findByUserId(userId);
-////						.orElseThrow(() -> new ResourceNotFoundException("Favorite with id " + id + "does not exist"));
-//				return ResponseEntity.ok(favorite);
-//			}
+	@GetMapping("/favorites/user/{userId}")
+	public ResponseEntity<List<Favorite>> getFavoriteByUser(@PathVariable int userId) {
+		List<Favorite> favorite = favoriteRepository.findByUserId(userId);
+		return ResponseEntity.ok(favorite);
+	}
 
 	
 	// update favorite REST API

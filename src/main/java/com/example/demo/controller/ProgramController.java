@@ -46,6 +46,13 @@ public class ProgramController {
 		return ResponseEntity.ok(program);
 	}
 	
+	// get programs by school id REST API
+	@GetMapping("/programs/school/{schoolId}")
+	public ResponseEntity<List<Program>> getProgramBySchoolId(@PathVariable int schoolId) {
+		List<Program> program = programRepository.findBySchoolId(schoolId);
+		return ResponseEntity.ok(program);
+	}
+
 	// update program REST API
 	@PutMapping("/programs/{id}")
 	public ResponseEntity<Program> updateProgram(@PathVariable int id, @RequestBody Program programDetails) {

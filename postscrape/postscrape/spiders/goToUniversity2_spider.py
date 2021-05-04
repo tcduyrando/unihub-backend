@@ -11,16 +11,25 @@ class goToUniversitySpider(scrapy.Spider):
     }
 
     start_urls = [
-        'https://www.gotouniversity.com/university/university-of-oxford/application-requirements',
-        'https://www.gotouniversity.com/university/lund-university/application-requirements',
-        'https://www.gotouniversity.com/university/california-institute-of-technology/application-requirements',
-        'https://www.gotouniversity.com/university/chung-ang-university/application-requirements',
-        'https://www.gotouniversity.com/university/university-of-cambridge/application-requirements',
-        'https://www.gotouniversity.com/university/yale-university/application-requirements',
-        'https://www.gotouniversity.com/university/massachusetts-institute-of-technology/application-requirements',
-        'https://www.gotouniversity.com/university/princeton-university/application-requirements',
-        'https://www.gotouniversity.com/university/stanford-university/application-requirements',
-        'https://www.gotouniversity.com/university/university-of-chicago/application-requirements'
+        # 'https://www.gotouniversity.com/university/university-of-oxford/application-requirements',
+        # 'https://www.gotouniversity.com/university/california-institute-of-technology/application-requirements',
+        # 'https://www.gotouniversity.com/university/university-of-cambridge/application-requirements',
+        # 'https://www.gotouniversity.com/university/yale-university/application-requirements',
+        # 'https://www.gotouniversity.com/university/massachusetts-institute-of-technology/application-requirements',
+        # 'https://www.gotouniversity.com/university/princeton-university/application-requirements',
+        # 'https://www.gotouniversity.com/university/stanford-university/application-requirements',
+        # 'https://www.gotouniversity.com/university/university-of-chicago/application-requirements',
+        # 'https://www.gotouniversity.com/university/lund-university/application-requirements',
+        # 'https://www.gotouniversity.com/university/chung-ang-university/application-requirements',
+        'https://www.gotouniversity.com/university/university-of-california-berkeley/application-requirements',
+        'https://www.gotouniversity.com/university/imperial-college-london/application-requirements',
+        'https://www.gotouniversity.com/university/johns-hopkins-university/application-requirements',
+        'https://www.gotouniversity.com/university/university-of-pennsylvania/application-requirements',
+        'https://www.gotouniversity.com/university/zurich-swiss-federal-institute-of-technology-eth/application-requirements',
+        'https://www.gotouniversity.com/university/university-of-california-los-angeles/application-requirements',
+        'https://www.gotouniversity.com/university/university-college-london/application-requirements',
+        'https://www.gotouniversity.com/university/columbia-university/application-requirements',
+
     ]
     def parse(self, response):
         name2 = response.xpath('/html/body/div[2]/ul/li[3]/a/text()').get()
@@ -32,9 +41,21 @@ class goToUniversitySpider(scrapy.Spider):
         # remove line break in location
         location = location.replace('\n', '')
 
-        score_ielts = float(score_ielts)
-        score_toefl = int(score_toefl)
-        score_sat = int(score_sat)
+        # assign 0 to score if null and convert score strings to int
+        if score_ielts != None:
+            score_ielts = float(score_ielts)
+        else:
+            score_ielts = 0.0
+
+        if score_toefl != None:
+            score_toefl = int(score_toefl)
+        else:
+            score_toefl = 0
+
+        if score_sat != None:
+            score_sat = int(score_sat)
+        else:
+            score_sat = 0
 
         items = UniItem()
         items['name2'] = name2
@@ -43,3 +64,8 @@ class goToUniversitySpider(scrapy.Spider):
         items['score_toefl'] = score_toefl
         items['score_sat'] = score_sat
         yield items
+
+        # unused_urls = [
+        #     'https://www.gotouniversity.com/university/university-of-toronto-st-george/application-requirements',
+        #     'https://www.gotouniversity.com/university/cornell-university/application-requirements'
+        # ]

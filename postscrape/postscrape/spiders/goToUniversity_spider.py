@@ -11,16 +11,24 @@ class goToUniversitySpider(scrapy.Spider):
     }
 
     start_urls = [
-        'https://www.gotouniversity.com/university/university-of-oxford',
-        'https://www.gotouniversity.com/university/california-institute-of-technology',
-        'https://www.gotouniversity.com/university/university-of-cambridge',
-        'https://www.gotouniversity.com/university/yale-university',
-        'https://www.gotouniversity.com/university/massachusetts-institute-of-technology',
-        'https://www.gotouniversity.com/university/princeton-university',
-        'https://www.gotouniversity.com/university/stanford-university',
-        'https://www.gotouniversity.com/university/university-of-chicago',
-        'https://www.gotouniversity.com/university/lund-university',
-        'https://www.gotouniversity.com/university/chung-ang-university',
+        # 'https://www.gotouniversity.com/university/university-of-oxford',
+        # 'https://www.gotouniversity.com/university/california-institute-of-technology',
+        # 'https://www.gotouniversity.com/university/university-of-cambridge',
+        # 'https://www.gotouniversity.com/university/yale-university',
+        # 'https://www.gotouniversity.com/university/massachusetts-institute-of-technology',
+        # 'https://www.gotouniversity.com/university/princeton-university',
+        # 'https://www.gotouniversity.com/university/stanford-university',
+        # 'https://www.gotouniversity.com/university/university-of-chicago',
+        # 'https://www.gotouniversity.com/university/lund-university',
+        # 'https://www.gotouniversity.com/university/chung-ang-university',
+        'https://www.gotouniversity.com/university/university-of-california-berkeley',
+        'https://www.gotouniversity.com/university/imperial-college-london',
+        'https://www.gotouniversity.com/university/johns-hopkins-university',
+        'https://www.gotouniversity.com/university/university-of-pennsylvania',
+        'https://www.gotouniversity.com/university/zurich-swiss-federal-institute-of-technology-eth',
+        'https://www.gotouniversity.com/university/university-of-california-los-angeles',
+        'https://www.gotouniversity.com/university/university-college-london',
+        'https://www.gotouniversity.com/university/columbia-university'
     ]
     def parse(self, response):
         items = UniItem()
@@ -41,10 +49,15 @@ class goToUniversitySpider(scrapy.Spider):
         email = email.replace('\n', '')
         phone = phone.replace('\n', '')
 
-        # remove "," from tuition
-        tuitionUSD = tuitionUSD.replace(',', '')
-        # remove space " " from tuition
+        # remove space "Bachelors:" from tuition
+        tuition = tuition.replace('Bachelors:', '')
+
+        # remove "" from tuitionUSD
         tuitionUSD = tuitionUSD.replace(' ', '')
+        # remove "," from tuitionUSD
+        tuitionUSD = tuitionUSD.replace(',', '')
+        # remove space "Bachelors:" from tuitionUSD
+        tuitionUSD = tuitionUSD.replace('Bachelors:', '')
         # remove currency symbols and convert native tuition string to tuitionUSD int
         if "$" in tuitionUSD:
             tuitionUSD = tuitionUSD.replace('$', '')
@@ -73,6 +86,10 @@ class goToUniversitySpider(scrapy.Spider):
             tuitionUSD = tuitionUSD.replace('KRW', '')
             tuitionUSD = int(tuitionUSD)
             tuitionUSD = int(tuitionUSD * 0.00089)
+        elif "CHF" in tuitionUSD:
+            tuitionUSD = tuitionUSD.replace('CHF', '')
+            tuitionUSD = int(tuitionUSD)
+            tuitionUSD = int(tuitionUSD * 1.1)
 
 
         items['name'] = name
@@ -93,3 +110,8 @@ class goToUniversitySpider(scrapy.Spider):
     #         yield {
     #             'program' : program
     #         }
+
+    # unused_urls = [
+    #     'https://www.gotouniversity.com/university/university-of-toronto-st-george',
+    #     'https://www.gotouniversity.com/university/cornell-university'
+    # ]

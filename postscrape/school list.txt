@@ -1,11 +1,17 @@
-MIT             yes
-Caltech         yes
+MIT                     yes
+Caltech                 yes
 
-Oxford          not allowed
-Harvard         cannot scrape (in <script>)
+Oxford                  not allowed
+Harvard                 cannot scrape (in <script>)
+ETH Zurich              404 Cache Server Error: Not found UA
+Columbia                cannot scrape (in <script>)
 
-commonapp.org       allowed
-collegedata.com     allowed
-gotouniversity.com  allowed (no xpath)
 
-TimesHigherEducation not allowed
+
+commonapp.org           allowed
+collegedata.com         allowed
+gotouniversity.com      allowed
+    uToronto            tuition incompatible
+    Cornell             tuition incompatible
+
+TimesHigherEducation    not allowed

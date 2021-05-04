@@ -11,24 +11,35 @@ class goToUniversitySpider(scrapy.Spider):
     }
 
     start_urls = [
+        # 0
         # 'https://www.gotouniversity.com/university/university-of-oxford/application-requirements',
         # 'https://www.gotouniversity.com/university/california-institute-of-technology/application-requirements',
         # 'https://www.gotouniversity.com/university/university-of-cambridge/application-requirements',
         # 'https://www.gotouniversity.com/university/yale-university/application-requirements',
         # 'https://www.gotouniversity.com/university/massachusetts-institute-of-technology/application-requirements',
+        # 5
         # 'https://www.gotouniversity.com/university/princeton-university/application-requirements',
         # 'https://www.gotouniversity.com/university/stanford-university/application-requirements',
         # 'https://www.gotouniversity.com/university/university-of-chicago/application-requirements',
         # 'https://www.gotouniversity.com/university/lund-university/application-requirements',
         # 'https://www.gotouniversity.com/university/chung-ang-university/application-requirements',
-        'https://www.gotouniversity.com/university/university-of-california-berkeley/application-requirements',
-        'https://www.gotouniversity.com/university/imperial-college-london/application-requirements',
-        'https://www.gotouniversity.com/university/johns-hopkins-university/application-requirements',
-        'https://www.gotouniversity.com/university/university-of-pennsylvania/application-requirements',
-        'https://www.gotouniversity.com/university/zurich-swiss-federal-institute-of-technology-eth/application-requirements',
-        'https://www.gotouniversity.com/university/university-of-california-los-angeles/application-requirements',
-        'https://www.gotouniversity.com/university/university-college-london/application-requirements',
-        'https://www.gotouniversity.com/university/columbia-university/application-requirements',
+        # 10
+        # 'https://www.gotouniversity.com/university/university-of-california-berkeley/application-requirements',
+        # 'https://www.gotouniversity.com/university/imperial-college-london/application-requirements',
+        # 'https://www.gotouniversity.com/university/johns-hopkins-university/application-requirements',
+        # 'https://www.gotouniversity.com/university/university-of-pennsylvania/application-requirements',
+        # 'https://www.gotouniversity.com/university/zurich-swiss-federal-institute-of-technology-eth/application-requirements',
+        # 15
+        # 'https://www.gotouniversity.com/university/university-of-california-los-angeles/application-requirements',
+        # 'https://www.gotouniversity.com/university/university-college-london/application-requirements',
+        # 'https://www.gotouniversity.com/university/columbia-university/application-requirements',
+        # 'https://www.gotouniversity.com/university/duke-university/application-requirements',
+        # 'https://www.gotouniversity.com/university/university-of-michigan-ann-arbor/application-requirements',
+        # 20
+        # 'https://www.gotouniversity.com/university/peking-university/application-requirements',
+        # 'https://www.gotouniversity.com/university/new-york-university/application-requirements',
+        # 'https://www.gotouniversity.com/university/carnegie-mellon-university/application-requirements',
+        # 'https://www.gotouniversity.com/university/university-of-washington/application-requirements'
 
     ]
     def parse(self, response):

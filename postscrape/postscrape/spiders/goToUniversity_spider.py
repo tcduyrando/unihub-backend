@@ -11,24 +11,35 @@ class goToUniversitySpider(scrapy.Spider):
     }
 
     start_urls = [
+        # 0
         # 'https://www.gotouniversity.com/university/university-of-oxford',
         # 'https://www.gotouniversity.com/university/california-institute-of-technology',
         # 'https://www.gotouniversity.com/university/university-of-cambridge',
         # 'https://www.gotouniversity.com/university/yale-university',
         # 'https://www.gotouniversity.com/university/massachusetts-institute-of-technology',
+        # 5
         # 'https://www.gotouniversity.com/university/princeton-university',
         # 'https://www.gotouniversity.com/university/stanford-university',
         # 'https://www.gotouniversity.com/university/university-of-chicago',
         # 'https://www.gotouniversity.com/university/lund-university',
         # 'https://www.gotouniversity.com/university/chung-ang-university',
-        'https://www.gotouniversity.com/university/university-of-california-berkeley',
-        'https://www.gotouniversity.com/university/imperial-college-london',
-        'https://www.gotouniversity.com/university/johns-hopkins-university',
-        'https://www.gotouniversity.com/university/university-of-pennsylvania',
-        'https://www.gotouniversity.com/university/zurich-swiss-federal-institute-of-technology-eth',
-        'https://www.gotouniversity.com/university/university-of-california-los-angeles',
-        'https://www.gotouniversity.com/university/university-college-london',
-        'https://www.gotouniversity.com/university/columbia-university'
+        # 10
+        # 'https://www.gotouniversity.com/university/university-of-california-berkeley',
+        # 'https://www.gotouniversity.com/university/imperial-college-london',
+        # 'https://www.gotouniversity.com/university/johns-hopkins-university',
+        # 'https://www.gotouniversity.com/university/university-of-pennsylvania',
+        # 'https://www.gotouniversity.com/university/zurich-swiss-federal-institute-of-technology-eth',
+        # 15
+        # 'https://www.gotouniversity.com/university/university-of-california-los-angeles',
+        # 'https://www.gotouniversity.com/university/university-college-london',
+        # 'https://www.gotouniversity.com/university/columbia-university',
+        # 'https://www.gotouniversity.com/university/duke-university',
+        # 'https://www.gotouniversity.com/university/university-of-michigan-ann-arbor',
+        # 20
+        # 'https://www.gotouniversity.com/university/peking-university',
+        # 'https://www.gotouniversity.com/university/new-york-university',
+        # 'https://www.gotouniversity.com/university/carnegie-mellon-university',
+        # 'https://www.gotouniversity.com/university/university-of-washington'
     ]
     def parse(self, response):
         items = UniItem()

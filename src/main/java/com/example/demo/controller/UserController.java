@@ -57,7 +57,15 @@ public class UserController {
 	@GetMapping("/users/email/{email}")
 	public ResponseEntity<User> getUserByEmail(@PathVariable String email) {
 		User user = userRepository.findByEmail(email);
-//				.orElseThrow(() -> new ResourceNotFoundException("User with id " + id + "does not exist"));
+//				.orElseThrow(() -> new ResourceNotFoundException("User with email " + email + "does not exist"));
+		return ResponseEntity.ok(user);
+	}
+	
+	// get user by email REST API
+	@GetMapping("/users/emails/{email}")
+	public ResponseEntity<List<User>> getUsersByEmail(@PathVariable String email) {
+		List<User> user = userRepository.findAllByEmail(email);
+//				.orElseThrow(() -> new ResourceNotFoundException("User with email " + email + "does not exist"));
 		return ResponseEntity.ok(user);
 	}
 	

@@ -13,6 +13,8 @@ public interface ProgramRepository extends JpaRepository<Program, Integer> {
 	
 	public List<Program> findBySchool(School school);
 	public List<Program> findBySchoolId(int id);
-	public List<Program> findByName(String name);
+	
+	public Program findByName(String name);
+	public List<Program> findAllByName(String name);
 
 }

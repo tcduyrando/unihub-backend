@@ -17,9 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.exception.ResourceNotFoundException;
-import com.example.demo.model.School;
 import com.example.demo.model.User;
-import com.example.demo.repository.SchoolRepository;
 import com.example.demo.repository.UserRepository;
 
 @CrossOrigin
@@ -29,9 +27,6 @@ public class UserController {
 	
 	@Autowired
 	private UserRepository userRepository;
-	
-	@Autowired
-	private SchoolRepository schoolRepository;
 	
 	// get all users REST API
 	@GetMapping("/users")

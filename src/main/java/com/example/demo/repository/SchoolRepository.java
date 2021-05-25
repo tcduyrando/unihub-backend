@@ -10,6 +10,7 @@ import com.example.demo.model.School;
 @Repository
 public interface SchoolRepository extends JpaRepository<School, Integer> {
 	
-	public List<School> findByName(String name);
+	public School findByName(String name);
+	public List<School> findAllByName(String name);
 
 }

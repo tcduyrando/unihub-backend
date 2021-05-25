@@ -48,6 +48,22 @@ public class SchoolController {
 		return ResponseEntity.ok(school);
 	}
 	
+	// get school by name REST API
+	@GetMapping("/schools/name/{name}")
+	public ResponseEntity<School> getSchoolByName(@PathVariable String name) {
+		School school = schoolRepository.findByName(name);
+//						.orElseThrow(() -> new ResourceNotFoundException("School with id " + id + "does not exist"));
+		return ResponseEntity.ok(school);
+	}
+	
+	// get list of schools by name REST API
+	@GetMapping("/schools/names/{name}")
+	public ResponseEntity<List<School>> getSchoolsByName(@PathVariable String name) {
+		List<School> school = schoolRepository.findAllByName(name);
+//								.orElseThrow(() -> new ResourceNotFoundException("School with id " + id + "does not exist"));
+		return ResponseEntity.ok(school);
+	}
+	
 	// update school REST API
 	@PutMapping("/schools/{id}")
 	public ResponseEntity<School> updateSchool(@PathVariable int id, @RequestBody School schoolDetails) {

@@ -48,6 +48,22 @@ public class ProgramController {
 		return ResponseEntity.ok(program);
 	}
 	
+	// get program by name REST API
+//		@GetMapping("/programs/name/{name}")
+//		public ResponseEntity<Program> getProgramByName(@PathVariable String name) {
+//			Program program = programRepository.findByName(name);
+////							.orElseThrow(() -> new ResourceNotFoundException("School with id " + id + "does not exist"));
+//			return ResponseEntity.ok(program);
+//		}
+	
+	// get list of programs by name REST API
+	@GetMapping("/programs/names/{name}")
+	public ResponseEntity<List<Program>> getProgramsByName(@PathVariable String name) {
+		List<Program> program = programRepository.findAllByName(name);
+//									.orElseThrow(() -> new ResourceNotFoundException("School with id " + id + "does not exist"));
+		return ResponseEntity.ok(program);
+	}
+	
 	// get programs by school id REST API
 	@GetMapping("/programs/school/{schoolId}")
 	public ResponseEntity<List<Program>> getProgramBySchoolId(@PathVariable int schoolId) {

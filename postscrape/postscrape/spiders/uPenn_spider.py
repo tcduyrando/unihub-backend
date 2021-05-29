@@ -2,8 +2,8 @@ import scrapy
 
 from ..items import UniItem
 
-class JohnHopkinsSpider(scrapy.Spider):
-    name = 'upenn'
+class UPennsylvaniaSpider(scrapy.Spider):
+    name = 'uPenn'
 
     # other info are scraped by goToUniversity
 

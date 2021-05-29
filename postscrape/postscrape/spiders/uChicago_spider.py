@@ -3,7 +3,7 @@ import scrapy
 from ..items import UniItem
 
 class UChicagoSpider(scrapy.Spider):
-    name = 'uchicago'
+    name = 'uChicago'
 
     # other info are scraped by goToUniversity
 
